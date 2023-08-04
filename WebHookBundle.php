@@ -4,6 +4,7 @@ namespace WebHookBundle;
 
 use Pimcore\HttpKernel\Bundle\DependentBundleInterface;
 use Pimcore\HttpKernel\BundleCollection\BundleCollection;
+use Pimcore\Extension\Bundle\Installer\InstallerInterface;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use WebHookBundle\Installer\WebHookBundleInstaller;
@@ -15,7 +16,8 @@ class WebHookBundle extends AbstractPimcoreBundle {
     const PACKAGE_NAME = 'sintra/pimcore-webhooks';
 */
 
-    public function getInstaller() {
+    public function getInstaller(): ?InstallerInterface
+    {
 
         return $this->container->get(WebHookBundleInstaller::class);
         
